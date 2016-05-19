@@ -1,4 +1,5 @@
-## Website Performance Optimization - Project (@Udacity #frontendnanodegree)
+## Website Performance Optimization
+_Project @Udacity #frontendnanodegree_
 
 ### Step 1: Critical Rendering Path (CRP) Optimization
 > **Scope:** Optimize PageSpeed Insights score of at least 90 for Mobile and Desktop for `index.html`.
