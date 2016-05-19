@@ -4,10 +4,23 @@ _Project @Udacity #frontendnanodegree_
 ### Step 1: Critical Rendering Path (CRP) Optimization
 > **Scope:** Optimize PageSpeed Insights score of at least 90 for Mobile and Desktop for `index.html`.
 
+Defined the Critical Rendering Path (CRP) Metrics and optimized them by:
+- reducing the number of critical resources
+   - removed render-blocking `analytics.js` JavaScript by adding async attribute to its `script` tag.
+   - removed render-blocking `google fonts` + `style.css` CSS by moving them to the bottom of the HTML.
+- reducing the number of critical bytes of critical resources
+   - used Grunt build tool to perform optimization such as minification of CSS and JS and image optimization _(see **Step 4** for details)_.
+- hence, shortening the critical path length
+
+[`Index.html`](http://evasimon.me/web-optimization/) now measures a score above 90 on [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) for both Mobile and Desktop devices.
+
+<br>
+
 
 ### Step 2: Frame Rate Optimization
 > **Scope:** Optimize `views/js/main.js` to make `views/pizza.html` render with a consistent frame-rate at 60fps when scrolling.
 
+<br>
 
 ### Step 3: Computational Efficiency
 > **Scope:** Using the pizza size slider on the `views/pizza.html` page, resize pizzas in less than 5ms.
@@ -18,6 +31,8 @@ After tracing and idetifying the performance issue in DevTools/Timeline, I found
 
 - Fixed FSL by refactoring `changePizzaSizes` _function_ (see line 445-467), reducing repetition of code and by switching `offsetWidth` calculation from `px` to `%`.
 - Time to resize pizzas now is less then 1ms.
+
+<br>
 
 ### Step 4: Minification of CSS and JS, and Image Optimization
 > **Scope:** Download, configure and implement task runner on the project using Grunt.
