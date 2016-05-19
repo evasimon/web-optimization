@@ -19,7 +19,7 @@ _Project @Udacity #frontendnanodegree_
 
 - Download the project assets and make sure `src` folder, `Gruntfile.js` and `package.json` files are under one folder.
 - Open your terminal window.
-- Ensure that you have the _npm_ package manager or _Node.js_ installed and up-to-date by running `npm update -g npm` in your terminal.
+- Ensure that you have the _npm_ package manager or _Node.js_ installed and up-to-date by running `npm update -g npm`.
 - Install Grunt's command line interface (CLI) by running `npm install -g grunt-cli`.
 - Since, `Gruntfile.js` and `package.json` are already configured for the project with the needed tasks and Grunt plugins --> you are ready to run Grunt:
     * Go to the project's root directory in your terminal.
