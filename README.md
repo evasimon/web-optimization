@@ -10,7 +10,14 @@ _Project @Udacity #frontendnanodegree_
 
 
 ### Step 3: Computational Efficiency
-> **Scope:** Using the pizza size slider on the `views/pizza.html` page, resize pizzas is less than 5 ms. 
+> **Scope:** Using the pizza size slider on the `views/pizza.html` page, resize pizzas in less than 5ms.
+
+After tracing and idetifying the performance issue in DevTools/Timeline, I found that a forced synchronous layout (FSL) was causing the high resize time of the pizzas.
+
+**Changes made on the `main.js` file:**
+
+- Fixed FSL by refactoring `changePizzaSizes` _function_ (see line 445-467), reducing repetition of code and by switching `offsetWidth` calculation from `px` to `%`.
+- Time to resize pizzas now is less then 1ms.
 
 ### Step 4: Minification of CSS and JS, and Image Optimization
 > **Scope:** Download, configure and implement task runner on the project using Grunt.
