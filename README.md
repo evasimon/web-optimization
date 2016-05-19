@@ -12,5 +12,15 @@
 > **Scope:** Using the pizza size slider on the `views/pizza.html` page, resize pizzas is less than 5 ms. 
 
 ### Step 4: Minification of CSS and JS, and Image Optimization
-> **Scope:** Download, configure and implement task runner on the project using Grunt
+> **Scope:** Download, configure and implement task runner on the project using Grunt.
 
+**How to run Grunt on this project?**
+
+- Download the project assets and make sure `src` folder, `Gruntfile.js` and `package.json` files are under one folder.
+- Open your terminal window.
+- Ensure that you have the _npm_ package manager or _Node.js_ installed and up-to-date by running `npm update -g npm` in your terminal.
+- Install Grunt's command line interface (CLI) by running `npm install -g grunt-cli`.
+- Since, `Gruntfile.js` and `package.json` are already configured for the project with the needed tasks and Grunt plugins --> you are ready to run Grunt:
+    * Go to the project's root directory in your terminal.
+    * Install project dependencies by running `npm install`.
+    * Run Grunt with `grunt`.
