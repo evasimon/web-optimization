@@ -9,7 +9,7 @@ Defined the CRP Metrics and optimized them by:
    - removed render-blocking `analytics.js` JavaScript by adding async attribute to its `script` tag.
    - removed render-blocking `google fonts` + `style.css` CSS by moving them to the bottom of the HTML.
 - reducing the number of critical bytes of critical resources
-   - used Grunt build tool to perform optimization such as minification of CSS and JS and image optimization _(see **Step 4** for details)_.
+   - used Grunt build tool to perform optimization such as minification of CSS and JS and image optimization (_see **Step4** for details_).
 - hence, shortening the critical path length
 
 [`Index.html`](http://evasimon.me/web-optimization/) now measures a score above 90 on [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) for both Mobile and Desktop devices.
@@ -22,9 +22,9 @@ Defined the CRP Metrics and optimized them by:
 
 **Changes made on `views/js/main.js` file:**
 
-- Decreased the number of pizzas from 200 to 20 at page loading/scrolling (see line 545).
-- Used `getElementsByClassName()` _function_ instead of `querySelectorAll()` _function_ (see line 516); a faster way to access the DOM.
-- Fixed the forced synchronous layout (FSL) by removing `document.body.scrollTop / 1250` function from the loop (see line 519) as its value does not depend on the number of elements that have the `mover` class.
+- Decreased the number of pizzas from 200 to 20 at page loading/scrolling (_see line 545_).
+- Used `getElementsByClassName()` _function_ instead of `querySelectorAll()` _function_ (_see line 516_); a faster way to access the DOM.
+- Fixed the forced synchronous layout (FSL) by removing `document.body.scrollTop / 1250` function from the loop (_see line 519_) as its value does not depend on the number of elements that have the `mover` class.
 - Added `backface-visibility: hidden` on the `mover` class in `views/css/style.css` file, so the backside of the rotated elements are not going to be painted when scrolling the page.
 
 Now, `views/pizza.html` renders with a consistent frame-rate at 60fps when scrolling.
@@ -38,7 +38,7 @@ After tracing and idetifying the performance issue in DevTools/Timeline, I found
 
 **Changes made on `views/js/main.js` file:**
 
-- Fixed FSL by refactoring `changePizzaSizes` _function_ (see line 445-467), reducing repetition of code and by switching `offsetWidth` calculation from `px` to `%`.
+- Fixed FSL by refactoring `changePizzaSizes` _function_ (_see line 445-467_), reducing repetition of code and by switching `offsetWidth` calculation from `px` to `%`.
 - Time to resize pizzas now is less then 1ms.
 
 <br>
