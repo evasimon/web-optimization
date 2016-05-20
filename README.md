@@ -20,14 +20,21 @@ Defined the Critical Rendering Path (CRP) Metrics and optimized them by:
 ### Step 2: Frame Rate Optimization
 > **Scope:** Optimize `views/js/main.js` to make `views/pizza.html` render with a consistent frame-rate at 60fps when scrolling.
 
+**Changes made on `views/js/main.js` and `views/css/style.css` files:**
+
+- Decreased the number of pizzas from 200 to 20 at page loading/scrolling (see line 545).
+- Used `getElementsByClassName()` _function_ instead of `querySelectorAll()` _function_ (see line 516); a faster way to access the DOM.
+- Fixed the forced synchronous layout (FSL) by removing `document.body.scrollTop / 1250` function from the loop (see line 519) as its value does not depend on the number of elements that have the `mover` class.
+- Added `backface-visibility: hidden` style on the `mover` class, so the backside of the rotated elements are not going to be Painted when scrolling the page.
+
 <br>
 
 ### Step 3: Computational Efficiency
 > **Scope:** Using the pizza size slider on the `views/pizza.html` page, resize pizzas in less than 5ms.
 
-After tracing and idetifying the performance issue in DevTools/Timeline, I found that a forced synchronous layout (FSL) was causing the high resize time of the pizzas.
+After tracing and idetifying the performance issue in DevTools/Timeline, I found that an FSL was causing the high resize time of the pizzas.
 
-**Changes made on the `main.js` file:**
+**Changes made on `views/js/main.js` file:**
 
 - Fixed FSL by refactoring `changePizzaSizes` _function_ (see line 445-467), reducing repetition of code and by switching `offsetWidth` calculation from `px` to `%`.
 - Time to resize pizzas now is less then 1ms.
