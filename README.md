@@ -4,7 +4,7 @@ _Project @Udacity #frontendnanodegree_
 ### Step 1: Critical Rendering Path (CRP) Optimization
 > **Scope:** Optimize PageSpeed Insights score of at least 90 for Mobile and Desktop for `index.html`.
 
-Defined the Critical Rendering Path (CRP) Metrics and optimized them by:
+Defined the CRP Metrics and optimized them by:
 - reducing the number of critical resources
    - removed render-blocking `analytics.js` JavaScript by adding async attribute to its `script` tag.
    - removed render-blocking `google fonts` + `style.css` CSS by moving them to the bottom of the HTML.
@@ -20,12 +20,14 @@ Defined the Critical Rendering Path (CRP) Metrics and optimized them by:
 ### Step 2: Frame Rate Optimization
 > **Scope:** Optimize `views/js/main.js` to make `views/pizza.html` render with a consistent frame-rate at 60fps when scrolling.
 
-**Changes made on `views/js/main.js` and `views/css/style.css` files:**
+**Changes made on `views/js/main.js` file:**
 
 - Decreased the number of pizzas from 200 to 20 at page loading/scrolling (see line 545).
 - Used `getElementsByClassName()` _function_ instead of `querySelectorAll()` _function_ (see line 516); a faster way to access the DOM.
 - Fixed the forced synchronous layout (FSL) by removing `document.body.scrollTop / 1250` function from the loop (see line 519) as its value does not depend on the number of elements that have the `mover` class.
-- Added `backface-visibility: hidden` style on the `mover` class, so the backside of the rotated elements are not going to be Painted when scrolling the page.
+- Added `backface-visibility: hidden` on the `mover` class in `views/css/style.css` file, so the backside of the rotated elements are not going to be painted when scrolling the page.
+
+Now, `views/pizza.html` renders with a consistent frame-rate at 60fps when scrolling.
 
 <br>
 
