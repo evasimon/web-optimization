@@ -22,9 +22,12 @@ Defined the CRP Metrics and optimized them by:
 
 **Changes made on `views/js/main.js` file:**
 
-- Decreased the number of pizzas from 200 to 20 at page loading/scrolling (_see line 545_).
-- Used `getElementsByClassName()` _function_ instead of `querySelectorAll()` _function_ (_see line 516_); a faster way to access the DOM.
-- Fixed the forced synchronous layout (FSL) by removing `document.body.scrollTop / 1250` function from the loop (_see line 519_) as its value does not depend on the number of elements that have the `mover` class.
+- Decreased the number of sliding pizzas from 200 to 18.
+- Used `document.getElementById()` and `document.getElementsByClassName()` Web API calls throughout the code instead of `document.querySelector()` and `document.querySelectorAll()`, respectively; a faster way to access the DOM.
+- Fixed the major forced synchronous layout (FSL) issue by defining `document.body.scrollTop / 1250` outside the loop, as its value do not depend on the number of targeted elements.
+- Also, moved `document.getElementById("randomPizzas")` and `document.getElementById("movingPizzas1")` outside the loop so they will get to make only one DOM call.
+- Declared the `phase` and `elem` variables outside the `for` loops preventing them from being created every time the loop is executed.
+- Stored `items.length` into a local variable for a more efficient iteration.
 - Added `backface-visibility: hidden` on the `mover` class in `views/css/style.css` file, so the backside of the rotated elements are not going to be painted when scrolling the page.
 
 Now, `views/pizza.html` renders with a consistent frame-rate at 60fps when scrolling.
@@ -36,9 +39,11 @@ Now, `views/pizza.html` renders with a consistent frame-rate at 60fps when scrol
 
 After tracing and idetifying the performance issue in DevTools/Timeline, I found that an FSL was causing the high resize time of the pizzas.
 
-**Changes made on `views/js/main.js` file:**
+**Changes made on `resizePizzas` _function_ in `views/js/main.js`:**
 
-- Fixed FSL by refactoring `changePizzaSizes` _function_ (_see line 445-467_), reducing repetition of code and by switching `offsetWidth` calculation from `px` to `%`.
+- Fixed FSL by refactoring `changePizzaSizes` _function_, reducing repetition of code and by switching `offsetWidth` calculation from `px` to `%`; also,
+- Switched to `document.getElementById()` and `document.getElementsByClassName()` Web API calls for a faster access of the DOM.
+- Stored `randomPizzas.length` into a local variable for a more efficient iteration.
 - Time to resize pizzas now is less then 1ms.
 
 <br>
