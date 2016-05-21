@@ -560,8 +560,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // document.getElementById() Web API call is faster and declaring it outside the loop will make only one DOM call
   var movingPizzas = document.getElementById("movingPizzas1");
 
-  //number of sliding pizzas decreased from 200 to 18
-  for (var i = 0; i < 18; i++) {
+  //number of sliding pizzas decreased from 200 to 16
+  for (var i = 0; i < 16; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
