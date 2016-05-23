@@ -550,9 +550,12 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var pizzaHeight = 100;
 
-  // height of the screen in pixels
-  var iHeight = window.screen.height;
+  // Dynamically calculates the number of pizzas needed to fill the screen, based on browser window resolution.
+  var iHeight = window.screen.height;                   // height of the screen in pixels
+  var row = Math.floor(iHeight / (pizzaHeight + s));    // number of rows per screen
+  var nrPizza = row * cols;                             // number of pizzas on the screen
 
   // Declaring the elem variable outside the loop will prevent it from being created every time the loop is executed
   var elem;
@@ -561,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var movingPizzas = document.getElementById("movingPizzas1");
 
   //number of sliding pizzas decreased from 200 to 16
-  for (var i = 0; i < 16; i++) {
+  for (var i = 0; i < nrPizza; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";

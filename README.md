@@ -22,7 +22,7 @@ Defined the CRP Metrics and optimized them by:
 
 **Changes made on `views/js/main.js` file:**
 
-- Decreased the number of sliding pizzas from 200 to 16.
+- Calculated dinamically the number of pizzas needed to fill the screen, based on browser window resolution.
 - Used `document.getElementById()` and `document.getElementsByClassName()` Web API calls throughout the code instead of `document.querySelector()` and `document.querySelectorAll()`, respectively; a faster way to access the DOM.
 - Fixed the major forced synchronous layout (FSL) issue by defining `document.body.scrollTop / 1250` outside the loop, as its value do not depend on the number of targeted elements.
 - Also, moved `document.getElementById("randomPizzas")` and `document.getElementById("movingPizzas1")` outside the loop so they will get to make only one DOM call.
