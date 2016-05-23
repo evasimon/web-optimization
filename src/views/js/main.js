@@ -16,6 +16,10 @@ Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
 
+/*
+Code refactoring made in May 2016 by @author Eva Simon.
+*/
+
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -563,7 +567,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // document.getElementById() Web API call is faster and declaring it outside the loop will make only one DOM call
   var movingPizzas = document.getElementById("movingPizzas1");
 
-  //number of sliding pizzas decreased from 200 to 16
+  // Creates the moving pizzas
   for (var i = 0; i < nrPizza; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
