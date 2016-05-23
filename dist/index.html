@@ -14,16 +14,16 @@
 
     <script>
         (function(w, g) {
-            w['GoogleAnalyticsObject'] = g;
+            w["GoogleAnalyticsObject"] = g;
             w[g] = w[g] || function() {
                 (w[g].q = w[g].q || []).push(arguments)
             };
             w[g].l = 1 * new Date();
-        })(window, 'ga');
+        })(window, "ga");
 
         // Optional TODO: replace with your Google Analytics profile ID.
-        ga('create', 'UA-XXXX-Y');
-        ga('send', 'pageview');
+        ga("create", "UA-XXXX-Y");
+        ga("send", "pageview");
     </script>
     <!-- Async attribute is applied to the script to stop render blocking the page.-->
     <script async src="http://www.google-analytics.com/analytics.js"></script>
@@ -80,7 +80,7 @@
 
         <!-- Render blocking content is eliminated by placing the style links below. -->
         <noscript id="deferred-styles">
-            <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet'>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
             <link rel="stylesheet" href="css/style.css">
         </noscript>
         <script>
@@ -94,7 +94,7 @@
             var raf = requestAnimationFrame || mozRequestAnimationFrame ||
                 webkitRequestAnimationFrame || msRequestAnimationFrame;
             if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-            else window.addEventListener('load', loadDeferredStyles);
+            else window.addEventListener("load", loadDeferredStyles);
         </script>
 
 </body>
