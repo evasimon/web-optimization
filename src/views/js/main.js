@@ -558,9 +558,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Dynamically calculates the number of pizzas needed to fill the screen, based on browser window resolution.
   var iHeight = window.screen.height;                   // height of the screen in pixels
-  var row = Math.floor(iHeight / (pizzaHeight + s));    // number of rows per screen
+  var row = Math.floor(iHeight / s);                    // number of rows per screen
   var nrPizza = row * cols;                             // number of pizzas on the screen
-
+  console.log(row);
   // Declaring the elem variable outside the loop will prevent it from being created every time the loop is executed
   var elem;
 
